@@ -1,0 +1,41 @@
+.header{
+    font-weight: 600;
+    padding: 20px;
+    color: aliceblue;
+}
+.userCon{
+    background: rgb(60, 63, 60);
+    padding: 0px 5vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.428);
+}
+.user{
+    /* background: red; */
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+}
+.userName{
+    /* background: yellow; */
+    color: black;
+    padding: 0px 10px;
+}
+.share{
+    /* background: blue; */
+}
+.userImg{
+    /* background: green; */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px
+}
+.content{
+    padding: 20px 5vw;
+    /* background: rgb(176, 150, 150); */
+    min-height: 50vh;
+}
+.contentImg{
+    /* background: gray; */
+}
