@@ -4,16 +4,25 @@ import clsx from "clsx";
 import { usePathname } from "next/navigation";
 import { useUser } from "@/context/UserContext";
 import UserDropdown from "./UserDropdown";
+import Image from "next/image";
+import logo from './nav.png'
 // import Search from '../Search/Search'
 const Navbar = () => {
   const pathName = usePathname();
   const user = useUser();
 
   return (
-    <div className="bg-[#FCA311] z-[999999] pr-20 pl-20">
+    <div className="bg-[#171717] z-[999999] pr-20 pl-20">
       <div className="block p-2 container mx-auto flex flex-col md:flex-row justify-between items-center" style={{ backdropFilter: 'blur(5px)'}}>
         <Link href='/'>
-          <h2 className="text-2xl text-white font-semibold mb-4 md:mb-0">Soyombo.mn</h2>
+          <h2 className="text-2xl text-white font-semibold mb-4 md:mb-0">
+          <Image
+            src={logo} 
+            alt="User"
+            width={180}
+            height={50}
+            />
+            </h2>
         </Link>
         <div>
         {/* <Search/> */}

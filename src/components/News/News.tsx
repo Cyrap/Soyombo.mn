@@ -4,6 +4,7 @@ import s from './News.module.css'
 import { query } from "firebase/firestore";
 import { doc, collection, onSnapshot, getDocs, where } from "firebase/firestore"
 import { db } from "@/store/firebase";
+import InnerHTML from 'dangerously-set-html-content'
 interface News{
     id:string,
     header:string,
@@ -36,8 +37,9 @@ const News = () =>{
 
     return (
     <>
+      <div className={s.con}>
       {news.map((item) => (
-        <div key={item.id}>
+        <div key={item.id} className={s.news}>
           <h2 className={s.header}>{item.header}</h2>
           <div className={s.userCon}>
             <div className={s.user}>
@@ -57,16 +59,18 @@ const News = () =>{
               <div>FB</div>
             </div>
           </div>
-          <div className={s.content}>{item.content}</div>
+          <div className={s.content}><InnerHTML html={item.content}/></div>
+          <div className={s.contentImg}>
           <Image
-            className={s.contentImg}
             alt="content"
             src={item.imageURL}
             width={1000}
             height={1000}
-          />
+            />
+            </div>
         </div>
       ))}
+</div>
     </>
   );
 };

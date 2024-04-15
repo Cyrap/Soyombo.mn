@@ -82,12 +82,16 @@ const CarRegister = () => {
     type="text"
     onChange={(e) => setFormValues({...formValues, newsHeader:e.target.value})}
   />
-  <textarea
-    className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-blue-500"
-    placeholder="Текст"
-    value={formValues.newsContent}
-    onChange={(e) => setFormValues({...formValues, newsContent:e.target.value})}
-  />
+<textarea
+  className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-blue-500"
+  placeholder="Текст"
+  value={formValues.newsContent}
+  onChange={(e) => {
+    const contentWithLineBreaks = e.target.value.replace(/\n/g, "<br>");
+    setFormValues({...formValues, newsContent: contentWithLineBreaks});
+  }}
+/>
+
     <input type="file" onChange={(e) => {
           const selectedFile : File | null | any = e.target.files ? e.target.files[0] : null;
           setFileUpload(selectedFile );
