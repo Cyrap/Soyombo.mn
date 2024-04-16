@@ -1,6 +1,4 @@
-'use client'
-import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
+import { useState, useEffect } from 'react';
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "@/store/firebase";
 
@@ -12,16 +10,13 @@ interface News {
     imageURL: string;
 }
 
-const NewsDetailPage = () => {
-    const router = useRouter();
-    const  id  = router.query.id;
+export function getPostData(id: string) {
     const [news, setNews] = useState<News | null>(null);
-
     useEffect(() => {
         const fetchNews = async () => {
             if (id) {
                 try {
-                    const newsDocRef = doc(db, "Posts", id.toString());
+                    const newsDocRef = doc(db, "Posts", id);
                     const newsDocSnapshot = await getDoc(newsDocRef);
                     if (newsDocSnapshot.exists()) {
                         const newsData = newsDocSnapshot.data();
@@ -43,18 +38,9 @@ const NewsDetailPage = () => {
 
         fetchNews();
     }, [id]);
-    console.log("askdk")
-    if (!id || !news) {
-        return <div>Loading...</div>;
-    }
 
-    return (
-        <div>
-            <h1>{news.header}</h1>
-            <img src={news.imageURL} alt={news.header} />
-            <p>{news.content}</p>
-        </div>
-    );
-};
-
-export default NewsDetailPage;
+    return {
+        id,
+        ...news,
+    };
+}

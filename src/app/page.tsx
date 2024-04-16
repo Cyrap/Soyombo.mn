@@ -11,7 +11,6 @@ export default function Home() {
     <main className='dark text-foreground bg-background'>
     <Navbar/>
     <div className='w-[100vw] flex justify-center'>
-    {/* <News/> */}
     <div className='w-[80vh]'>
     <Posts/>
     </div>
