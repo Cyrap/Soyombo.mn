@@ -9,13 +9,13 @@ import Posts from '@/components/Posts/Posts'
 import HomeLoading from '@/components/HomeLoading/page'
 export default function Home() {
   return(<div>
-    <Head>
+    {/* <Head>
       <title>Soyombo</title>
       <meta name="description" content='check out this news site'/>
       <link rel='news site' href='https://soyombo-cyan.vercel.app/NewsDetailPage/Eov7yFKvvvvFgTSoP'/>
-      {/* <link rel='news site' href='http://localhost:3000/'/> */}
+      <link rel='news site' href='http://localhost:3000/'/>
       <meta property='og:image' content='' />
-      <meta property='og:title' content='this is og title'/>
+      <meta property='og:title' content='this isssssssss og title'/>
       <meta property='og:description'
       content='check out this is description'
       />
@@ -28,8 +28,8 @@ export default function Home() {
       />
       <meta name='facebook:image' content=''/>
       <meta name='facebook:url' content='https://soyombo-cyan.vercel.app/NewsDetailPage/9XQTKykjHfLBRnRfuuDi'/>
-      {/* <meta name='facebook:url' content='http://localhost:3000/'/> */}
-    </Head>
+      <meta name='facebook:url' content='http://localhost:3000/'/>
+    </Head> */}
    <NextUIProvider>
     <main className='dark text-foreground bg-background'>
     <Navbar/>

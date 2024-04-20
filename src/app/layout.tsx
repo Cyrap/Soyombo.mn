@@ -16,14 +16,14 @@ export default function RootLayout({
   return (<>
     <UserProvider>
     <html lang="en">
-      <head>
+      {/* <head>
       <meta property='og:image'
         content='https://cdn.factcheck.org/UploadedFiles/TotalEclipseThumb.jpg'
         />
         <title>Soyombo</title>
       <meta name="description" content='check out this news site'/>
       <link rel='news site' href='https://soyombo-cyan.vercel.app/NewsDetailPage/Eov7yFKvvvvFgTSoP'/>
-      {/* <link rel='news site' href='http://localhost:3000/'/> */}
+      <link rel='news site' href='http://localhost:3000/'/>
       <meta property='og:image' content='"https://cdn.factcheck.org/UploadedFiles/TotalEclipseThumb.jpg' />
       <meta property='og:title' content='this is og title'/>
       <meta property='og:description'
@@ -38,9 +38,9 @@ export default function RootLayout({
       />
       <meta name='facebook:image' content='"https://cdn.factcheck.org/UploadedFiles/TotalEclipseThumb.jpg'/>
       <meta name='facebook:url' content='https://soyombo-cyan.vercel.app/NewsDetailPage/9XQTKykjHfLBRnRfuuDi'/>
-      {/* <meta name='facebook:url' content='http://localhost:3000/'/> */}
+      <meta name='facebook:url' content='http://localhost:3000/'/>
    
-      </head>
+      </head> */}
       <body className={inter.className}>{children}</body>
     </html>
     </UserProvider>
