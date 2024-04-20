@@ -5,6 +5,7 @@ import News from '@/components/News/News'
 import SwiperComponent from '@/components/Swiper/Swiper'
 import {NextUIProvider} from '@nextui-org/react'
 import Posts from '@/components/Posts/Posts'
+import HomeLoading from '@/components/HomeLoading/page'
 export default function Home() {
   return(<div>
    <NextUIProvider>
@@ -20,6 +21,13 @@ export default function Home() {
    </NextUIProvider> 
   </div>
   )
+
+  // return (
+  //   <>
+  //   <Navbar/>
+  //   <HomeLoading/>
+  //   </>
+  // )
 }
 
 

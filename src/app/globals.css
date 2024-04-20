@@ -15,6 +15,17 @@
     --background-end-rgb: 0, 0, 0;
   }
 }
+
+@layer utilities {
+  .customcss {
+    /* Your custom CSS styles */
+    /* Example: */
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    color: #333;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+}
 button {
   position: relative;
 }

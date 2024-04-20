@@ -16,5 +16,3 @@ const config: Config = {
   require('@tailwindcss/aspect-ratio'),]
 }
 export default config
-
-

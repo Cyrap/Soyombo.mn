@@ -1,6 +1,6 @@
+'use client'
 import React from "react";
-import Image from "next/image";
-import s from './News.module.css'
+import {Card, CardHeader, CardBody, CardFooter, Divider, Link, Image} from "@nextui-org/react";
 import InnerHTML from 'dangerously-set-html-content'
 import Share from "../ShareBtn/page";
 interface NewsProps {
@@ -21,47 +21,51 @@ const News: React.FC<NewsProps> = ({
 
     return (
         <>
-            <div className={s.con}>
-                <div key={id} className={s.news}>
-                    <h2 className={s.header}>{header}</h2>
-                    <div className={s.userCon}>
-                        <div className={s.user}>
-                          {imageURL &&
-                            <Image
-                            className={s.userImg}
-                            alt="user"
-                            src={imageURL}
-                            width={40}
-                            priority={false} // {false} | {true}
-                            height={40}
-                            />
-                          }
-                            <div className={s.userName}>
-                                <div>{ownerId}</div>
-                                <div>{new Date().toLocaleDateString()}</div>
-                            </div>
-                        </div>
-                        <div>
-                            <Share/>
-                        </div>
-                    </div>
-                    {content ? ( // Check if content is not null or undefined
-                        <div className={s.content}><InnerHTML html={content} /></div>
-                    ) : null}
-
-                    {imageURL && 
-                    <div className={s.contentImg}>
-                        <Image
-                            alt="content"
-                            src={imageURL}
-                            width={1000}
-                            priority={false} // {false} | {true}
-                            height={1000}
-                            />
-                    </div>
-                      }
-                </div>
-            </div>
+          <Card>
+      <CardHeader className="flex justify-between">
+        <div className="flex gap-3">
+        <Image
+          alt="nextui logo"
+          height={40}
+          radius="sm"
+          src={imageURL}
+          width={40}
+          />
+        <div className="flex flex-col">
+          <p className="text-md">{ownerId}</p>
+          <p className="text-small text-default-500">{new Date().toLocaleDateString()}</p>
+        </div>
+        </div>
+        <div>
+            <Share/>
+        </div>
+      </CardHeader>
+      <Divider/>
+      <CardBody>
+      {content ? (
+      <InnerHTML html={content} />
+      ) : null}
+      <div>
+        <Image
+          alt="nextui logo"
+          height={1000}
+          radius="sm"
+          src={imageURL}
+          width={1000}
+          />
+          </div>
+      </CardBody>
+      <Divider/>
+      <CardFooter>
+        <Link
+          isExternal
+          showAnchorIcon
+          href="https://github.com/nextui-org/nextui"
+        >
+          Visit source code on GitHub.
+        </Link>
+      </CardFooter>
+    </Card>
         </>
     );
 };

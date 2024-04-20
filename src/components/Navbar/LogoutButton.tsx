@@ -1,6 +1,6 @@
 import {Button} from '@nextui-org/button';
 import React from 'react';
-import {auth} from '@/store/firebase'
+import {auth} from '@/firebase/firebase'
 import {signOut} from "firebase/auth"
 import { useUser } from '@/context/UserContext';
 import { useRouter } from 'next/navigation'

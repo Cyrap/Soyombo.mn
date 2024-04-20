@@ -6,7 +6,7 @@ import { ref, uploadBytes ,getDownloadURL} from "firebase/storage";
 import { v4 as uuidv4 } from 'uuid'; 
 import { updateDoc } from "firebase/firestore";
 import { doc } from "firebase/firestore";
-import { storage, db } from '../../store/firebase';
+import { storage, db } from '../../firebase/firebase';
 import Navbar from "@/components/Navbar/Navbar";
 import { useUser } from "@/context/UserContext";
 import { Spinner } from "@nextui-org/react";

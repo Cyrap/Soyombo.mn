@@ -1,10 +1,10 @@
 "use client";
 import Navbar from "../../components/Navbar/Navbar";
 import React, { useState } from "react";
-import { auth } from "@/store/firebase";
+import { auth } from "@/firebase/firebase";
 import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { useRouter } from 'next/navigation'
-import { googleProvider } from "@/store/firebase";
+import { googleProvider } from "@/firebase/firebase";
 import { useUser } from "@/context/UserContext";
 const Login = () => {
   const [email, setEmail] = useState("");
