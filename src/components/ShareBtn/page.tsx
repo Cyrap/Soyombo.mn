@@ -8,7 +8,7 @@ import {
 
 export function Share(param:any) {
 // const id = param.id;
-const id = ""
+const id = "Eov7yFKvvvvFgTSoPJsL"
   const shareUrl = `https://soyombo-cyan.vercel.app/NewsDetailPage/${id}`;
   const title = 'Soyombo';
 
