@@ -6,8 +6,10 @@ import {
 } from 'react-share';
 
 
-export function Share() {
-  const shareUrl = 'https://online-car-shop.vercel.app/';
+export function Share(param:any) {
+// const id = param.id;
+const id = ""
+  const shareUrl = `https://soyombo-cyan.vercel.app/NewsDetailPage/${id}`;
   const title = 'Soyombo';
 
   return (
