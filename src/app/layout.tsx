@@ -17,6 +17,11 @@ export default function RootLayout({
   return (<>
     <UserProvider>
     <html lang="en">
+      <head>
+        <meta property='og:image'
+        content='https://cdn.factcheck.org/UploadedFiles/TotalEclipseThumb.jpg'
+        />
+      </head>
       <body className={inter.className}>{children}</body>
     </html>
     </UserProvider>
