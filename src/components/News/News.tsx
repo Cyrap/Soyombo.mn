@@ -37,13 +37,14 @@ const News: React.FC<NewsProps> = ({
         </div>
         </div>
         <div>
-            <Share/>
+            <Share param={{id,imageURL}}/>
         </div>
       </CardHeader>
       <Divider/>
       <CardBody>
+        <h3 className="font-bold text-lg pb-[10px]">{header}</h3>
       {content ? (
-      <InnerHTML html={content} />
+      <InnerHTML html={content}/>
       ) : null}
       <div>
         <Image

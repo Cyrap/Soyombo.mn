@@ -40,7 +40,6 @@ const Posts = () => {
           };
         });
         setNews(filteredData);
-        console.log(filteredData);
       } catch (err) {
         console.log(err);
       }

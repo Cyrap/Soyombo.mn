@@ -1,4 +1,5 @@
 'use client'
+
 import React from 'react';
 import {
   FacebookIcon,
@@ -7,11 +8,10 @@ import {
 
 
 export function Share(param:any) {
-// const id = param.id;
-const id = "Eov7yFKvvvvFgTSoPJsL"
+const id = param?.param?.id;
+const imageURL = param?.param?.imageURL;
   const shareUrl = `https://soyombo-cyan.vercel.app/NewsDetailPage/${id}`;
   const title = 'Soyombo';
-
   return (
       <div>
         <FacebookShareButton url={shareUrl} title={title} className="Demo__some-network__share-button">
