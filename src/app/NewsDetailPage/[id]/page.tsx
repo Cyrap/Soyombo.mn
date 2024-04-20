@@ -33,13 +33,13 @@ export default async function NewsDetailPage({ params }: {
     <>
       <Head>
         <title>Title</title>
-        {/* <link rel='news site' href='https://soyombo-cyan.vercel.app/NewsDetailPage/Eov7yFKvvvvFgTSoP'/> */}
+        <link rel='news site' href={`https://soyombo-cyan.vercel.app/NewsDetailPage/${id}`}/>
         <meta name="description" content="Check out this news site" />
         <meta property="og:image" content={imageURL} />
         <meta property="og:title" content={header} />
         <meta property="og:description" content="Check out this awesome site" />
         <meta property="og:type" content="website" />
-        {/* <meta property="og:url" content={`https://soyombo-cyan.vercel.app/NewsDetailPage/${id}`} /> */}
+        <meta property="og:url" content={`https://soyombo-cyan.vercel.app/NewsDetailPage/${id}`} />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@soyombo" />
         <meta name="twitter:title" content={header} />
