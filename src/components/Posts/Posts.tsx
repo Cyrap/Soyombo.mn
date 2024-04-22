@@ -6,19 +6,10 @@ import { collection, getDocs } from "firebase/firestore";
 import { db } from "@/firebase/firebase";
 import { Card, CardBody, Image } from "@nextui-org/react";
 import { Timestamp } from "firebase/firestore";
-
-interface News {
-  id: string;
-  header: string;
-  content: string;
-  ownerId: string;
-  imageURL: string;
-  date: Date;
-}
+import {News} from "../../firebase/types"
 
 const Posts = () => {
   const router = useRouter();
-
   const [news, setNews] = useState<News[]>([]);
   const newsCollectionRef = collection(db, "Posts");
 
@@ -29,10 +20,8 @@ const Posts = () => {
         const data = await getDocs(q);
         const filteredData: any = data.docs.map((doc) => {
           const docData = doc.data();
-          // Convert the Firebase timestamp to a JavaScript Date object
           const date =
             docData.date instanceof Timestamp ? docData.date.toDate() : null;
-          // Spread operator to merge with existing doc data
           return {
             ...docData,
             id: doc.id,

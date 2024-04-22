@@ -31,7 +31,8 @@ export default function Home() {
       <meta name='facebook:url' content='http://localhost:3000/'/>
     </Head> */}
    <NextUIProvider>
-    <main className='dark text-foreground bg-background'>
+    {/* <main className='dark text-foreground bg-background'> */}
+    <main className=' text-foreground bg-background'>
     <Navbar/>
     <div className='w-[100vw] flex justify-center'>
     <div className='w-[80vh]'>

@@ -1,43 +1,38 @@
-import { useState, useEffect } from 'react';
+import React, { useEffect, useState } from "react";
 import { doc, getDoc } from "firebase/firestore";
+import { useRouter } from "next/navigation";
+import { query } from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
 import { db } from "@/firebase/firebase";
-
-interface News {
-    id: string;
-    header: string;
-    content: string;
-    ownerId: string;
-    imageURL: string;
-}
-
+import { Card, CardBody, Image } from "@nextui-org/react";
+import { Timestamp } from "firebase/firestore";
+import {News} from "../firebase/types"
 export async function getPosts(): Promise<News[]> {
     const [news, setNews] = useState<News[]>([]);
-
+    const newsCollectionRef = collection(db, "Posts");
+  
     useEffect(() => {
-        const fetchNews = async () => {
-            try {
-                const newsDocRef = doc(db, "Posts");
-                const newsDocSnapshot = await getDoc(newsDocRef);
-                if (newsDocSnapshot.exists()) {
-                    const newsData = newsDocSnapshot.data();
-                    const newNewsItem: News = {
-                        id: newsDocSnapshot.id,
-                        header: newsData.header,
-                        content: newsData.content,
-                        ownerId: newsData.ownerId,
-                        imageURL: newsData.imageURL
-                    };
-                    setNews(prevNews => [...prevNews, newNewsItem]);
-                } else {
-                    console.log("No such document!");
-                }
-            } catch (error) {
-                console.error("Error fetching document: ", error);
-            }
-        };
-
-        fetchNews();
+      const getNews = async () => {
+        try {
+          const q = query(newsCollectionRef);
+          const data = await getDocs(q);
+          const filteredData: any = data.docs.map((doc) => {
+            const docData = doc.data();
+            const date =
+              docData.date instanceof Timestamp ? docData.date.toDate() : null;
+            return {
+              ...docData,
+              id: doc.id,
+              date: date,
+            };
+          });
+          setNews(filteredData);
+        } catch (err) {
+          console.log(err);
+        }
+      };
+      getNews();
     }, []);
 
-    return news; // Return the promise of News[]
+    return news;
 }

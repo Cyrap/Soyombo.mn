@@ -48,7 +48,7 @@ const CarRegister = () => {
         await uploadBytes(fileFolderRef, fileUpload)
         const imageURL = await getDownloadURL(fileFolderRef);
   
-        await updateDoc(doc(db, "products", productRef.id), {
+        await updateDoc(doc(db, "Posts", productRef.id), {
           imageURL: imageURL,
         });
         setFormValues({...formValues, newsImageURL:imageURL});
@@ -56,7 +56,7 @@ const CarRegister = () => {
   
       setFormValues({
         newsDate:new Date(),
-        newsImageURL:'https://www.nasa.gov/wp-content/uploads/2024/04/53641212344-be1e94e20c-o.jpg?resize=900,600',
+        newsImageURL:'',
         newsHeader:'',
         ownerId:'',
         newsContent:'',

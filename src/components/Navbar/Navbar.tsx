@@ -1,20 +1,38 @@
 'use client'
 'use state'
-import React from "react";
-import {Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, Link, Button} from "@nextui-org/react";
+import React, { useState,useEffect } from "react";
+import {Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, Link} from "@nextui-org/react";
 import {AcmeLogo} from "./Logo";
 import { useUser } from "@/context/UserContext";
 import UserDropdown from "./UserDropdown";
 import SubNavbar from "./SubNavbar"
+import  SuggestionComponent  from "../Suggestion/page";
+
+import { getPosts } from "../../lib/suggestion";
+import { Suggestion } from "@/firebase/types";
 export default function App() {
+  const [suggestions, setSuggestions] = useState<Suggestion[]>([]);
+
+  useEffect(() => {
+    const fetchSuggestions = async () => {
+      try {
+        const fetchedSuggestions = await getPosts();
+        setSuggestions(fetchedSuggestions);
+      } catch (error) {
+        console.error("Error fetching suggestions:", error);
+      }
+    };
+    fetchSuggestions();
+  }, []);
+
+  console.log(suggestions)
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const user  = useUser();
   const menuItems = [
     "Profile",
     "Dashboard",
     "Log Out",
-  ];
-
+  ];  
   return (
     <>
     <SubNavbar/>
@@ -31,13 +49,11 @@ export default function App() {
         </NavbarBrand>
       </NavbarContent>
 
-      {/* <NavbarContent className="hidden sm:flex gap-4" justify="center">
+      <NavbarContent className="hidden sm:flex gap-4" justify="center">
         <NavbarItem>
-          <Link color="foreground" href="#">
-            Features
-          </Link>
+            <SuggestionComponent suggestions={suggestions} />
         </NavbarItem>
-      </NavbarContent> */}
+      </NavbarContent>
 
       <NavbarContent justify="end">
         {/* {!user?.user && 
@@ -53,7 +69,6 @@ export default function App() {
 
       </NavbarContent>
       <NavbarMenu>
-        
         {menuItems.map((item, index) => (
           <NavbarMenuItem key={`${item}-${index}`}>
             <Link
@@ -69,8 +84,8 @@ export default function App() {
           </NavbarMenuItem>
         ))}
       </NavbarMenu>
-    </Navbar>
 
-    </>
+    </Navbar>
+               </>
   );
 }
